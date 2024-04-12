@@ -64,6 +64,49 @@ This turtle trading notebook(Turtletrading.ipynb) contains the implementation of
 -      buy       0.05      0.05      0.05        78
 -      none       0.82      0.87      0.85       771
 -      sell       0.00      0.00      0.00        86
-
 -  accuracy                           0.72       935
 - macro avg       0.29      0.31      0.30       935
+
+### Conclusion
+- While the turtle trading strategy demonstrates a moderate level of accuracy, it's important to note that the model's performance may be impacted by the skewness in the dataset. Additionally, the strategy does not allow for assigning class weights, limiting its ability to handle imbalanced data effectively. To address these challenges, an alternative approach was explored by implementing the Random Forest Regressor model. 
+
+---
+## Random Forest Regressor Model
+
+### Overview
+- The Random Forest Regressor notebook (`RandomForestRegressor.ipynb`) presents a machine learning approach to predict cryptocurrency prices. Below are the key steps involved in the process:
+
+### Feature Engineering
+- In this step, additional features like Relative Strength Index,Average True Range,Moving Average Convergence Divergence are engineered based on existing data to enhance the predictive capability of the model. Feature engineering aims to capture relevant information that might not be directly encoded in the original dataset.
+
+### Data Preprocessing
+- Data preprocessing involves preparing the dataset for model training. This includes handling missing values, scaling numerical features, encoding categorical variables, and splitting the data into training and testing sets.
+- Missing values are typically handled using imputation techniques to ensure that the model can effectively learn from the available data.
+
+### Model Training
+- The Random Forest Regressor model is trained on the preprocessed dataset.
+- During the training process, class weights are assigned to address the class imbalance issue present in the data.
+- Class imbalance occurs when the distribution of target classes is uneven, leading to biased model predictions.
+- By assigning higher weights to minority classes, the model is encouraged to pay more attention to these classes during training, thereby improving its ability to generalize to all classes.
+
+### Model Evaluation Metrics
+- Accuracy: 80%
+- Confusion Matrix: [[  1  0  19]
+-                    [  0  2  17]
+-                    [  0  1  147]]  
+- Classification Report:
+-            precision    recall  f1-score   support
+-      buy        1.00      0.05      0.10        20
+-      none       0.67      0.11      0.18        19
+-      sell       0.80      0.99      0.89       148
+-  accuracy                           0.80       187
+- macro avg       0.82      0.38      0.39       187
+- weighted avg    0.81      0.80      0.73       187
+
+The Random Forest Regressor approach offers a data-driven method to predict cryptocurrency prices, leveraging machine learning techniques to capture complex relationships between various market features and price movements.
+
+
+
+
+
+
